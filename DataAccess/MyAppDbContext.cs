@@ -95,7 +95,7 @@ namespace _420DA3_Final_Formatif.DataAccess
 
             Language l1 = new Language() { Id = 1, Name = "English", IsoCode = "en" };
             Language l2 = new Language() { Id = 2, Name = "French", IsoCode = "fr" };
-            Language l3 = new Language() { Id = 2, Name = "German", IsoCode = "de" };
+            Language l3 = new Language() { Id = 3, Name = "German", IsoCode = "de" };
 
             Country c1 = new Country() { Id = 1, ShortName = "Canada", FullName = "Dominion of Canada" };
             Country c2 = new Country() { Id = 2, ShortName = "Germany", FullName = "Federal Republic of Germany" };
@@ -110,13 +110,13 @@ namespace _420DA3_Final_Formatif.DataAccess
                 .WithMany(l => l.CountriesSpoken)
                 .UsingEntity(
                 "CountriesLanguages",
-                left =>
-                {
-                    return left.HasOne(typeof(Country)).WithMany().HasForeignKey("CountryId");
-                },
                 right =>
                 {
                     return right.HasOne(typeof(Language)).WithMany().HasForeignKey("LanguageId");
+                },
+                left =>
+                {
+                    return left.HasOne(typeof(Country)).WithMany().HasForeignKey("CountryId");
                 },
                 conf => {
                     conf.ToTable("CountriesLanguages").HasKey("CountryId", "LanguageId");
