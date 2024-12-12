@@ -30,6 +30,7 @@
         {
             topBarPanel = new Panel();
             bottomBarPanel = new Panel();
+            cancelButton = new Button();
             mainTableLayout = new TableLayoutPanel();
             centerPanel = new Panel();
             countryListtBox = new ListBox();
@@ -38,7 +39,6 @@
             button1 = new Button();
             seeDetailsButton = new Button();
             createButton = new Button();
-            cancelButton = new Button();
             bottomBarPanel.SuspendLayout();
             mainTableLayout.SuspendLayout();
             centerPanel.SuspendLayout();
@@ -60,6 +60,18 @@
             bottomBarPanel.Name = "bottomBarPanel";
             bottomBarPanel.Size = new Size(460, 50);
             bottomBarPanel.TabIndex = 1;
+            // 
+            // cancelButton
+            // 
+            cancelButton.AccessibleRole = AccessibleRole.TitleBar;
+            cancelButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            cancelButton.Location = new Point(336, 6);
+            cancelButton.Name = "cancelButton";
+            cancelButton.Size = new Size(112, 34);
+            cancelButton.TabIndex = 0;
+            cancelButton.Text = "Cancel";
+            cancelButton.UseVisualStyleBackColor = true;
+            cancelButton.Click += cancelButton_Click;
             // 
             // mainTableLayout
             // 
@@ -154,16 +166,6 @@
             createButton.Text = "Créer un pays";
             createButton.UseVisualStyleBackColor = true;
             createButton.Click += createButton_Click;
-            // 
-            // cancelButton
-            // 
-            cancelButton.Location = new Point(336, 6);
-            cancelButton.Name = "cancelButton";
-            cancelButton.Size = new Size(112, 34);
-            cancelButton.TabIndex = 0;
-            cancelButton.Text = "Cancel";
-            cancelButton.UseVisualStyleBackColor = true;
-            cancelButton.Click += cancelButton_Click;
             // 
             // MainMenu
             // 

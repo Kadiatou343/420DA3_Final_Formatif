@@ -64,34 +64,39 @@ namespace _420DA3_Final_Formatif.Presentation
                     this.langageListbox.SelectedItems.Add(lan);
                 }
             }
+            else
+            {
+                this.idNumUpDown.Value = 0;
+                this.shortNameTextBox.Text = null;
+                this.fullNameTextBox.Text = null;
+                this.langageListbox.SelectedItems.Clear();
+            }
         }
 
         public DialogResult OpenFor(ViewAction action, Country country)
         {
             this.action = action;
+            this.currentCountry = country;
+            this.InitializeLanguages();
             this.LoadInstanceInControls(country);
             switch (action)
             {
                 case ViewAction.Creation:
-                    this.InitializeLanguages();
                     this.viewModeLabel.Text = "Creation";
                     this.actionButton.Text = "Créer";
                     this.EnableEditableControls();
                     break;
                 case ViewAction.Visualization:
-                    this.InitializeLanguages();
                     this.viewModeLabel.Text = "Visualisation";
                     this.actionButton.Text = "OK";
                     this.DisableEditableControls();
                     break;
                 case ViewAction.Edition:
-                    this.InitializeLanguages();
                     this.viewModeLabel.Text = "Modification";
                     this.actionButton.Text = "Modifier";
                     this.EnableEditableControls();
                     break;
                 case ViewAction.Deletion:
-                    this.InitializeLanguages();
                     this.viewModeLabel.Text = "Suppression";
                     this.actionButton.Text = "Supprimer";
                     this.DisableEditableControls();
