@@ -1,3 +1,5 @@
+using _420DA3_Final_Formatif.Business;
+
 namespace _420DA3_Final_Formatif
 {
     internal static class Program
@@ -10,8 +12,7 @@ namespace _420DA3_Final_Formatif
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            (new MyApplication()).Start();
         }
     }
 }

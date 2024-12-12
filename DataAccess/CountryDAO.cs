@@ -19,9 +19,10 @@ namespace _420DA3_Final_Formatif.DataAccess
 
         public List<Country> Search(string filter)
         {
-            return this.context.Countries.Include(c => c.Languages)
+            return this.context.Countries
                 .Where(c => c.ShortName.ToLower().Contains(filter.ToLower()) 
                 || c.FullName.ToLower().Contains(filter.ToLower()))
+                .Include(c => c.Languages)
                 .ToList();
 
         }
